@@ -181,7 +181,9 @@
 
 #define M_DRM		145	/* Direct Rendering Manager */
 
-#define	M_LAST		146	/* Must be last type + 1 */
+#define	M_GCOV		146	/* Code coverage */
+
+#define	M_LAST		147	/* Must be last type + 1 */
 
 #define	INITKMEMNAMES { \
 	"free",		/* 0 M_FREE */ \
@@ -314,6 +316,7 @@
 	NULL,	/* 143 free */ \
 	"AGP Memory",	/* 144 M_AGP */ \
 	"DRM",	/* 145 M_DRM */ \
+	"GCOV",	/* 146 M_GCOV */ \
 }
 
 struct kmemstats {

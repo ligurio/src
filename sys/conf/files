@@ -695,6 +695,7 @@ file kern/subr_autoconf.c
 file kern/subr_disk.c
 file kern/subr_evcount.c
 file kern/subr_extent.c
+file kern/subr_gcov.c
 file kern/subr_hibernate.c		hibernate
 file kern/subr_log.c
 file kern/subr_percpu.c

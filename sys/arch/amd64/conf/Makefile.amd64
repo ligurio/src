@@ -47,6 +47,9 @@ NO_INTEGR_AS=  -no-integrated-as
 
 DEBUG?=		-g
 COPTS?=		-O2
+.if defined(COVERAGE)
+COPTS+=		-fprofile-arcs -ftest-coverage -O0
+.endif
 CFLAGS=		${DEBUG} ${CWARNFLAGS} ${CMACHFLAGS} ${COPTS} ${PIPE}
 AFLAGS=		-D_LOCORE -x assembler-with-cpp ${CWARNFLAGS} ${CMACHFLAGS}
 LINKFLAGS=	-T ld.script -X --warn-common -nopie
