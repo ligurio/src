@@ -2,12 +2,12 @@
 #	$NetBSD: Makefile,v 1.11 1995/03/21 09:05:14 cgd Exp $
 
 SHELL=	/bin/sh
-ED=	../obj/ed
+ED=	/bin/ed
 
-all: check
+all: regress
 	@:
 
-check: build test
+regress: build test
 	@if grep -h '\*\*\*' errs.o scripts.o; then :; else \
 		echo "tests completed successfully."; \
 	fi

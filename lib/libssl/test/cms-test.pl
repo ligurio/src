@@ -72,6 +72,9 @@ elsif ( -f "..\\out32dll\\openssl.exe" ) {
 elsif ( -f "..\\out32\\openssl.exe" ) {
     $ossl_path = "..\\out32\\openssl.exe";
 }
+elsif ( -f "/usr/bin/openssl" ) {
+    $ossl_path = "/usr/bin/openssl";
+}
 else {
     die "Can't find OpenSSL executable";
 }

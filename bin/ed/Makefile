@@ -3,5 +3,6 @@
 PROG=	ed
 CFLAGS+=-DBACKWARDS
 SRCS=	 buf.c glbl.c io.c main.c re.c sub.c undo.c
+SUBDIR= test
 
 .include <bsd.prog.mk>

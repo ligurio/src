@@ -3,7 +3,7 @@
 PROG=$1
 
 if [ -x $PROG ]; then
-    if expr "x`$PROG version`" : "xOpenSSL" > /dev/null; then
+    if expr "x`$PROG version`" : "xLibreSSL" > /dev/null; then
 	:
     else
 	echo "$PROG is not OpenSSL executable"

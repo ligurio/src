@@ -1,5 +1,7 @@
 #	$OpenBSD: Makefile,v 1.21 2017/07/02 18:11:28 espie Exp $
 
+SUBDIR=	testsuite
+
 LIB=	keynote
 MAN=	keynote.3 keynote.4 keynote.5
 NOPIC=	

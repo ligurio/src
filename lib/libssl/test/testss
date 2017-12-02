@@ -1,10 +1,11 @@
 #!/bin/sh
 
 digest='-sha1'
-reqcmd="../util/shlib_wrap.sh ../apps/openssl req"
-x509cmd="../util/shlib_wrap.sh ../apps/openssl x509 $digest"
-verifycmd="../util/shlib_wrap.sh ../apps/openssl verify"
-dummycnf="../apps/openssl.cnf"
+openssl="/usr/bin/openssl"
+reqcmd="$openssl req"
+x509cmd="$openssl x509 $digest"
+verifycmd="$openssl verify"
+dummycnf="test.cnf"
 
 CAkey="keyCA.ss"
 CAcert="certCA.ss"
@@ -34,7 +35,7 @@ echo "make a certificate request using 'req'"
 
 echo "string to make the random number generator think it has entropy" >> ./.rnd
 
-if ../util/shlib_wrap.sh ../apps/openssl no-rsa; then
+if $OPENSSL no-rsa; then
   req_new='-newkey dsa:../apps/dsa512.pem'
 else
   req_new='-new'

@@ -2,7 +2,7 @@
 
 .include <bsd.own.mk>
 .ifndef NOMAN
-SUBDIR=	man
+SUBDIR=	man test
 .endif
 
 PC_FILES=openssl.pc libssl.pc
