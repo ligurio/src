@@ -3,6 +3,7 @@
 
 # No man pages for regression tests.
 NOMAN=
+PKG_ADD= /usr/sbin/pkg_add
 
 # No installation.
 install:
@@ -32,6 +33,16 @@ ${_REGRESS_NEW}:=${${_REGRESS_OLD}}
 .    endif
 .  endif
 .endfor
+
+.if defined(PKG_REQUIRED)
+.  for _p in ${PKG_REQUIRED}
+PREREQ != ${PKG_ADD} ${_p} >/dev/null 2>&1 ; echo $?
+.if ("${PREREQ}" !=0)
+prereq:
+	@echo ${_p} not installed
+.endif
+.  endfor
+.endif
 
 # XXX - Need full path to REGRESS_LOG, otherwise there will be much pain.
 REGRESS_LOG?=/dev/null
@@ -65,7 +76,7 @@ _SKIP_FAIL=
 _SKIP_FAIL=-
 .endif
 
-.if defined(REGRESS_ROOT_TARGETS)
+.if defined(REGRESS_ROOT_TARGETS) || defined(PKG_REQUIRED)
 _ROOTUSER!=id -g
 SUDO?=
 .  if (${_ROOTUSER} != 0) && empty(SUDO)

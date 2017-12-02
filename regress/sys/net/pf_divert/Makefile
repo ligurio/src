@@ -3,20 +3,8 @@
 # The following ports must be installed for the regression tests:
 # p5-IO-Socket-INET6	object interface for AF_INET and AF_INET6 domain sockets
 # p5-Socket6		Perl defines relating to AF_INET6 sockets
-#
-# Check wether all required perl packages are installed.  If some
-# are missing print a warning and skip the tests, but do not fail.
 
-PERL_REQUIRE !=	perl -Mstrict -Mwarnings -e ' \
-    eval { require IO::Socket::INET6 } or print $@; \
-    eval { require Socket6 } or print $@; \
-'
-.if ! empty(PERL_REQUIRE)
-regress:
-	@echo "${PERL_REQUIRE}"
-	@echo install these perl packages for additional tests
-	@echo SKIPPED
-.endif
+PKG_REQUIRED +=	p5-IO-Socket-INET6 p5-Socket6
 
 # Fill out these variables as you have to test divert with the pf
 # kernel running on a remote machine.  You have to specify a local

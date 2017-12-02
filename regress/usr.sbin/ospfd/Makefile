@@ -4,21 +4,8 @@
 # p5-AnyEvent		provide framework for multiple event loops
 # p5-Hash-Merge		merge associative arrays
 # p5-YAML		YAML ain't a markup language
-#
-# Check wether all required perl packages are installed.  If some
-# are missing print a warning and skip the tests, but do not fail.
 
-PERL_REQUIRE != perl -Mstrict -Mwarnings -e ' \
-    eval { require AnyEvent } or print $@; \
-    eval { require Hash::Merge } or print $@; \
-    eval { require YAML } or print $@; \
-'
-.if ! empty (PERL_REQUIRE)
-regress:
-	@echo "${PERL_REQUIRE}"
-	@echo install these perl packages for additional tests
-	@echo SKIPPED
-.endif
+PKG_REQUIRED +=		p5-AnyEvent p5-Hash-Merge p5-YAML
 
 # Fill out these variables with your own system parameters
 # You need a tap device and an unused /24 IPv4 network.

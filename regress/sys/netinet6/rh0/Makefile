@@ -6,20 +6,7 @@
 # py-libdnet		python interface to libdnet
 # scapy			powerful interactive packet manipulation in python
 
-.if ! (make(clean) || make(cleandir) || make(obj))
-# Check wether all required python packages are installed.  If some
-# are missing print a warning and skip the tests, but do not fail.
-PYTHON_IMPORT !!= python2.7 -c 'from scapy.all import *' 2>&1 || true
-.endif
-
-.if ! empty(PYTHON_IMPORT)
-.BEGIN:
-	@true
-regress:
-	@echo '${PYTHON_IMPORT}'
-	@echo Install python and the scapy module for additional tests.
-	@echo SKIPPED
-.endif
+PKG_REQUIRED += scapy py-libdnet
 
 # This test needs a manual setup of two machines
 # Set up machines: LOCAL REMOTE

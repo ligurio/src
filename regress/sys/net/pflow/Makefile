@@ -27,6 +27,7 @@
 # Destroy it in the end.
 
 REGRESS_TARGETS=template_v10 flow_10_4 flow_10_6 ifconfig
+PKG_REQUIRED	+= p5-Net-Flow
 
 PROG=   gen_traffic
 LDADD=  -levent

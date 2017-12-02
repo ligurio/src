@@ -6,27 +6,7 @@ DIT2=dc=bar,dc=quux
 NLV=0.65
 CLEANFILES=ldapd.pid log ldapd1.conf ${DIT}_indx.db ${DIT}_data.db ${DIT2}_indx.db ${DIT2}_data.db
 
-# Needs p5-ldap and openldap (client)
-
-PERL_REQUIRE !=	perl -Mstrict -Mwarnings -e ' \
-    eval { require Net::LDAP } or print $@; \
-'
-.if ! empty (PERL_REQUIRE)
-regress:
-	@echo "${PERL_REQUIRE}"
-	@echo install package p5-ldap
-	@echo SKIPPED
-.endif
-
-.if ! (make(clean) || make(cleandir) || make(obj))
-LDAP_DEP != ldapsearch -VV 2>/dev/null ; echo $?
-.endif
-.if ("${LDAP_DEP}" != 0)
-regress:
-	@echo openldap-client must be installed
-	@echo SKIPPED
-.endif
-
+PKG_REQUIRED +=	p5-ldap openldap-client--
 REGRESS_TARGETS = connect import perl purge #cpan
 
 bootstrap:

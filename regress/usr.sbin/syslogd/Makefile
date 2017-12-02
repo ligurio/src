@@ -8,22 +8,8 @@
 #
 # This package enables additional interoperability tests
 # rsyslog		syslog daemon supporting databases, TCP, SSL, RELP
-#
-# Check wether all required perl packages are installed.  If some
-# are missing print a warning and skip the tests, but do not fail.
 
-PERL_REQUIRE !=	perl -Mstrict -Mwarnings -e ' \
-    eval { require IO::Socket::INET6 } or print $@; \
-    eval { require Socket6 } or print $@; \
-    eval { require IO::Socket::SSL } or print $@; \
-    eval { require BSD::Resource } or print $@; \
-'
-.if ! empty (PERL_REQUIRE)
-regress:
-	@echo "${PERL_REQUIRE}"
-	@echo install these perl packages for additional tests
-	@echo SKIPPED
-.endif
+PKG_REQUIRED +=		p5-IO-Socket-INET6 p5-Socket6 p5-IO-Socket-SSL p5-BSD-Resource
 
 # Automatically generate regress targets from test cases in directory.
 

@@ -1,7 +1,6 @@
 # $OpenBSD: Makefile.inc,v 1.3 2017/08/15 17:16:39 sf Exp $
 
-PERL_REQUIRE != perl -e 'eval { require File::Slurp } or print $$@'
-
+PKG_REQUIRED= 	p5-File-Slurp
 TESTS1=		create read mmap
 TESTS2=		many_files_root many_files_subdir file_write
 TESTS= ${TESTS1} ${TESTS2}
@@ -48,16 +47,9 @@ run-regress-${t}: stamp-setup ${.OBJDIR}/../fileops
 
 .for t in ${TESTS2}
 REGRESS_TARGETS+=	run-regress-${t}
-.if ! empty(PERL_REQUIRE)
-run-regress-${t}:
-	@echo "${PERL_REQUIRE}"
-	@echo "Install the p5-File-Slurp package to run the fileops ${t} subtest"
-	@echo SKIPPED
-.else
 run-regress-${t}: stamp-setup
 	@echo '\n======== $@ ========'
 	perl ${.CURDIR}/../fileops2.pl ${t} ${FILEOPS_MNT}
-.endif
 .endfor
 
 REGRESS_TARGETS+=	run-regress-cleanup
