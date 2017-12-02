@@ -18,6 +18,6 @@ run-regress-keynote:
                -l ${KEYNOTEDIR}/test-assertion6 \
                -l ${KEYNOTEDIR}/test-assertion7
 
-#.PHONY: ${REGRESS_TARGETS}
+.PHONY: ${REGRESS_TARGETS}
 
 .include <bsd.regress.mk>

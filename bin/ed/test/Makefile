@@ -4,10 +4,10 @@
 SHELL=	/bin/sh
 ED=	/bin/ed
 
-all: regress
+all: check
 	@:
 
-regress: build test
+check: build test
 	@if grep -h '\*\*\*' errs.o scripts.o; then :; else \
 		echo "tests completed successfully."; \
 	fi

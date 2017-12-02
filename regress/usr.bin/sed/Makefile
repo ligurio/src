@@ -23,14 +23,14 @@ substitute:
 hanoi:
 	${SED} -f ${.CURDIR}/$@.sed ${.CURDIR}/$@.in > $@.out
 	diff ${.CURDIR}/$@.expected $@.out
-	${SED} -f ${SEDDIR}/$@.sed ${SEDDIR}/$@.in > $@.out
-	diff ${SEDDIR}/$@.expected $@.out
+	${SED} -f ${SEDDIR}/$@.sed ${SEDDIR}/$@.in > ${SEDDIR}/$@.out
+	diff ${SEDDIR}/$@.expected ${SEDDIR}/$@.out
 
 math:
 	${SED} -f ${.CURDIR}/$@.sed ${.CURDIR}/$@.in > $@.out
 	diff ${.CURDIR}/$@.expected $@.out
-	echo "4+7*3" | ${SED} -f $@.sed > $@.out
-	diff ${SEDDIR}/$@.expected $@.out
+	echo "4+7*3" | ${SED} -f ${SEDDIR}/$@.sed > ${SEDDIR}/$@.out
+	diff ${SEDDIR}/$@.expected ${SEDDIR}/$@.out
 
 
 sierpinski:

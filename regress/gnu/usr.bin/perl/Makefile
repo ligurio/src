@@ -3,10 +3,12 @@ PERLDIR= ${.CURDIR}/../../../../gnu/usr.bin/perl/
 REGRESS_TARGETS= run-regress-perl
 
 run-regress-perl:
-	make -C ${PERLDIR}
-	make -C ${PERLDIR} test
+	${MAKE} -C ${PERLDIR}
+	${MAKE} -C ${PERLDIR} test
 
 clean:
-	make -C ${PERLDIR} clean
+	${MAKE} -C ${PERLDIR} clean
+
+.PHONY: ${REGRESS_TARGETS}
 
 .include <bsd.regress.mk>

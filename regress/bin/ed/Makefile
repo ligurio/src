@@ -4,7 +4,7 @@ EDDIR=	${.CURDIR}/../../../bin/ed/test/
 REGRESS_TARGETS= run-regress-ed
 
 run-regress-ed:
-	make -C ${EDDIR} regress
+	make -C ${EDDIR} check
 
 clean:
 	make -C ${EDDIR} clean

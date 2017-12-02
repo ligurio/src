@@ -3,8 +3,6 @@
 # -DEXTENDED 
 # 	if you want the paste & spaste macros.
 
-SUBDIR=	TEST
-
 PROG=	m4
 CFLAGS+=-DEXTENDED -I.
 CDIAGFLAGS=-W -Wall -Wstrict-prototypes -pedantic \

@@ -1,7 +1,7 @@
 # $OpenBSD $
 
 CTAGSDIR=	${.CURDIR}/../../../usr.bin/ctags/test/
-.PATH:		${CTAGSDIR}
+#.PATH:		${CTAGSDIR}
 
 REGRESS_TARGETS = run-regress-ctags
 CLEANFILES= ${CTAGSDIR}/ctags.out
