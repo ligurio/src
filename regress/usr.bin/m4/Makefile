@@ -134,7 +134,8 @@ test-fatalwarnings2:
 	${M4} -E -E -g ${.CURDIR}/fatalwarnings.m4 2>&1 | diff -u - ${.CURDIR}/fatalwarnings.out
 
 run_test:
-	${M4} ${M4DIR}/test.m4 | diff -u - ${M4DIR}/test.out
+	#${M4} ${M4DIR}/test.m4 | diff -u - ${M4DIR}/test.out
+	${MAKE} -C ${M4DIR}
 
 .PHONY:	${REGRESS_TARGETS}
 
