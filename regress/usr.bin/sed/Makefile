@@ -1,7 +1,10 @@
 #	$OpenBSD: Makefile,v 1.7 2017/07/06 14:17:11 bluhm Exp $
 #	$NetBSD: Makefile,v 1.1 2005/04/04 16:48:45 peter Exp $
 
+SEDDIR=       ${.CURDIR}/../../../usr.bin/sed/TEST/
+
 SED?=	/usr/bin/sed
+SHELL?=	/bin/sh
 
 REGRESS_TARGETS= sedtest substitute hanoi math sierpinski negation \
 	inplace inplace2 inplace3 commandl1 commandl2 commandc1 commandD1
@@ -20,10 +23,15 @@ substitute:
 hanoi:
 	${SED} -f ${.CURDIR}/$@.sed ${.CURDIR}/$@.in > $@.out
 	diff ${.CURDIR}/$@.expected $@.out
+	${SED} -f ${SEDDIR}/$@.sed ${SEDDIR}/$@.in > $@.out
+	diff ${SEDDIR}/$@.expected $@.out
 
 math:
 	${SED} -f ${.CURDIR}/$@.sed ${.CURDIR}/$@.in > $@.out
 	diff ${.CURDIR}/$@.expected $@.out
+	echo "4+7*3" | ${SED} -f $@.sed > $@.out
+	diff ${SEDDIR}/$@.expected $@.out
+
 
 sierpinski:
 	${SED} -nf ${.CURDIR}/$@.sed ${.CURDIR}/$@.in > $@.out
@@ -64,6 +72,10 @@ commandD1:
 	printf 'a\nbb\n' | ${SED} -f ${.CURDIR}/$@.sed > $@.out
 	diff ${.CURDIR}/$@.expected $@.out
 
-CLEANFILES+=*.out lines* script* *.txt
+clean:
+	@rm -rf ${SEDDIR}/nsed.out ${SEDDIR}/sed.out ${SEDDIR}/hanoi.out \
+		${SEDDIR}/math.out ${SEDDIR}/lines1 ${SEDDIR}/lines2 ${SEDDIR}/lines3 \
+		${SEDDIR}/script1 ${SEDDIR}/script2 \
+		*.out lines* script* *.txt
 
 .include <bsd.regress.mk>

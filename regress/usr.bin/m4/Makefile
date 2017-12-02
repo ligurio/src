@@ -1,5 +1,7 @@
 #	$OpenBSD: Makefile,v 1.34 2017/10/23 15:21:19 espie Exp $
 
+M4DIR=       ${.CURDIR}/../../../usr.bin/m4/TEST/
+
 FIBOMAX=25
 M4=m4
 
@@ -14,7 +16,8 @@ REGRESS_TARGETS= test-ff_after_dnl test-m4wrap test-m4wrap2 \
     test-gnupatterns2 test-comments test-synch1 test-synch1bis \
     test-gnuformat test-includes test-dumpdef test-gnuprefix \
     test-translit test-translit2 test-gnutranslit2 \
-    test-gnueval test-gnusofterror test-fatalwarnings test-fatalwarnings2
+    test-gnueval test-gnusofterror test-fatalwarnings test-fatalwarnings2 \
+    run_test
 
 test-ff_after_dnl: ff_after_dnl.m4
 	${M4} ff_after_dnl.m4 | diff - ${.CURDIR}/ff_after_dnl.out
@@ -129,6 +132,9 @@ test-fatalwarnings:
 
 test-fatalwarnings2:
 	${M4} -E -E -g ${.CURDIR}/fatalwarnings.m4 2>&1 | diff -u - ${.CURDIR}/fatalwarnings.out
+
+run_test:
+	${M4} ${M4DIR}/test.m4 | diff -u - ${M4DIR}/test.out
 
 .PHONY:	${REGRESS_TARGETS}
 

@@ -1,16 +1,16 @@
-XYZ	/usr/src/usr.bin/ctags/test/ctags.test	/^#define XYZ(A,B)	(A + B \/ 2) * (3 - 26 + l_lineno/
-color	/usr/src/usr.bin/ctags/test/ctags.test	/^enum color {red, green, gold, brown};$/
-last	/usr/src/usr.bin/ctags/test/ctags.test	/^		struct last {$/
-r4	/usr/src/usr.bin/ctags/test/ctags.test	/^ *\/struct struct_xtra{int list;};r4(x,y){};typede/
-routine1	/usr/src/usr.bin/ctags/test/ctags.test	/^routine1(one,two)	\/* comments here are fun... *\//
-routine2	/usr/src/usr.bin/ctags/test/ctags.test	/^ routine2 (one,two) { puts("hello\\n"); }$/
-routine3	/usr/src/usr.bin/ctags/test/ctags.test	/^(one,$/
-routine4	/usr/src/usr.bin/ctags/test/ctags.test	/^routine4(int one, char (*two)(void)) \/* test ANSI/
-struct_one	/usr/src/usr.bin/ctags/test/ctags.test	/^} struct_one;$/
-struct_three	/usr/src/usr.bin/ctags/test/ctags.test	/^struct struct_three {$/
-struct_two	/usr/src/usr.bin/ctags/test/ctags.test	/^	struct struct_two {$/
-struct_xtr	/usr/src/usr.bin/ctags/test/ctags.test	/^ *\/struct struct_xtra{int list;};r4(x,y){};typede/
-struct_xxe	/usr/src/usr.bin/ctags/test/ctags.test	/^ *\/struct struct_xtra{int list;};r4(x,y){};typede/
-u_char	/usr/src/usr.bin/ctags/test/ctags.test	/^typedef unsigned char	u_char;$/
-union_3	/usr/src/usr.bin/ctags/test/ctags.test	/^		union union_3 {$/
-union_one	/usr/src/usr.bin/ctags/test/ctags.test	/^union union_one {$/
+XYZ	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^#define XYZ(A,B)	(A + B \/ 2) * (3 - 26 + l_lineno/
+color	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^enum color {red, green, gold, brown};$/
+last	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^		struct last {$/
+r4	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^ *\/struct struct_xtra{int list;};r4(x,y){};typede/
+routine1	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^routine1(one,two)	\/* comments here are fun... *\//
+routine2	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^ routine2 (one,two) { puts("hello\\n"); }$/
+routine3	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^(one,$/
+routine4	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^routine4(int one, char (*two)(void)) \/* test ANSI/
+struct_one	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^} struct_one;$/
+struct_three	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^struct struct_three {$/
+struct_two	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^	struct struct_two {$/
+struct_xtr	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^ *\/struct struct_xtra{int list;};r4(x,y){};typede/
+struct_xxe	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^ *\/struct struct_xtra{int list;};r4(x,y){};typede/
+u_char	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^typedef unsigned char	u_char;$/
+union_3	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^		union union_3 {$/
+union_one	/usr/src/regress/usr.bin/ctags/../../../usr.bin/ctags/test//ctags.test	/^union union_one {$/

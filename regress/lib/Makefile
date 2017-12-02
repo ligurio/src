@@ -13,6 +13,7 @@ SUBDIR+=	libradius
 SUBDIR+=	libskey
 SUBDIR+=	libsndio
 SUBDIR+=	libssl
+SUBDIR+=	libstdc++
 SUBDIR+=	libtls
 SUBDIR+=	libutil
 
