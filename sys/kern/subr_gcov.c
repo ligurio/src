@@ -113,14 +113,7 @@ gcov_register_ctors(struct linker_file *lf, ctor_t *start, ctor_t *stop)
   ctor_t* ctor;
 
   bbcount = stop - start;
-
-/*
-  FreeBSD:
-  MALLOC(context, struct gcov_context *,
-		 sizeof(struct gcov_context) + bbcount * sizeof(struct bb *),
-		 M_GCOV, M_WAITOK);
-*/
-  malloc(struct gcov_context *, sizeof(struct gcov_context) + bbcount * sizeof(struct bb *), M_GCOV | M_WAITOK)
+  context = malloc(sizeof(struct gcov_context) + bbcount * sizeof(struct bb *), M_GCOV, M_WAITOK);
   mtx_enter(&gcov_mutex);
   KASSERT(current_context == NULL);
   current_context = context;
