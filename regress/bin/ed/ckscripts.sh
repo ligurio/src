@@ -7,7 +7,7 @@ TESTDIR=$3
 TEST=$4
 
 [ ! -x $ED ] && { echo "$ED: cannot execute"; exit 1; }
-[ ! -e $TESTDIR/$TEST ] && { echo "$TEST: does not exist"; exit 1; }
+[ ! -e $OBJDIR/$TEST ] && { echo "$TEST: does not exist"; exit 1; }
 
 # *.red scripts must exit with non-zero status
 # *.ed scripts must exit with zero status
