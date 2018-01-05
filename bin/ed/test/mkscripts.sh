@@ -6,9 +6,9 @@
 
 PATH="/bin:/usr/bin:/usr/local/bin/:."
 ED=$1
+OBJ=$2
+TESTS=$3
 [ ! -x $ED ] && { echo "$ED: cannot execute"; exit 1; }
-OBJ="/usr/src/regress/bin/ed/obj"
-TESTS="/usr/src/bin/ed/test"
 
 for i in *.t; do
 #	base=${i%.*}
