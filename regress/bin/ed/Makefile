@@ -4,7 +4,12 @@ TESTDIR= ${.CURDIR}/../../../bin/ed/test/
 OBJDIR= ${.CURDIR}/obj
 ED= /bin/ed
 SHELL= /bin/sh
-CLEANFILES += ${OBJDIR}/*.red ${OBJDIR}/*.ed ${OBJDIR}/*.o
+CLEANFILES+= ${OBJDIR}/*.red ${OBJDIR}/*.ed ${OBJDIR}/*.o
+REGRESS_SKIP_TARGETS+= run-regress-eq.ed \
+				run-regress-a1.ed \
+				run-regress-i1.ed \
+				run-regress-k1.ed \
+				run-regress-r1.ed
 
 regress: makescripts
 ARGS!= cd ${OBJDIR} && ls *.{ed,red}
@@ -17,7 +22,8 @@ run-regress-$a: $a
 .endfor
 
 makescripts:
-		cd ${TESTDIR} && $(SHELL) mkscripts.sh ${ED} ${OBJDIR} ${TESTS}
+		#cd ${TESTDIR} && $(SHELL) mkscripts.sh ${ED} ${OBJDIR} ${TESTS}
+		cd ${TESTDIR} && $(SHELL) mkscripts.sh ${ED} ${OBJDIR} "/usr/src/bin/ed/test"
 
 .PHONY: ${REGRESS_TARGETS}
 

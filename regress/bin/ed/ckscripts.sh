@@ -23,10 +23,12 @@ if [[ "$ext" == "ed" ]]; then
 		exit 1
 	fi
   else
+    echo "*** The script $i exited abnormally ***"
     exit 1
   fi
 else
   if $i; then
-    exit 0
+    echo "*** The script $i exited abnormally  ***"
+    exit 1
   fi
 fi

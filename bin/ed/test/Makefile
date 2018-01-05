@@ -2,7 +2,7 @@
 #	$NetBSD: Makefile,v 1.11 1995/03/21 09:05:14 cgd Exp $
 
 SHELL=	/bin/sh
-ED=	/bin/ed
+ED=	../obj/ed
 
 all: check
 	@:
