@@ -34,7 +34,7 @@ for i in *.t; do
 		$ED - <<\EOT
 		H
 		r $TESTS/$base.d
-		w $OBJ/$base.o
+		w $base.o
 		EOT
 		.
 		-2r $i
@@ -68,7 +68,7 @@ for i in *.err; do
 		$ED - <<\EOT
 		H
 		r $TESTS/$base.err
-		w $OBJ/$base.o
+		w $base.o
 		EOT
 		.
 		-2r $i

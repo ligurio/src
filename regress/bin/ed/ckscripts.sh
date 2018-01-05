@@ -13,22 +13,23 @@ TEST=$4
 # *.ed scripts must exit with zero status
 ext=$(echo $TEST | cut -d'.' -f2)
 if [[ "$ext" == "ed" ]]; then
-  exit 0
-  base=`$ED - \!"echo $i" <<-EOF
+  base=`$ED - \!"echo $TEST" <<-EOF
     	s/\..*
 		EOF`
   if $OBJDIR/$base.ed; then
 	if cmp -s $TESTDIR/$base.o $TESTDIR/$base.r; then :; else
-		echo "*** Output $TESTDIR/$base.o of script $i is incorrect ***"
+		echo "*** Output $TESTDIR/$base.o of script $TEST is incorrect ***"
 		exit 1
 	fi
   else
-    echo "*** The script $i exited abnormally ***"
+    echo "*** The script $TEST exited abnormally ***"
     exit 1
   fi
 else
-  if $i; then
-    echo "*** The script $i exited abnormally  ***"
+  if $OBJDIR/$TEST; then
+    echo "*** The script $TEST exited abnormally  ***"
     exit 1
+  else
+    exit 0
   fi
 fi
