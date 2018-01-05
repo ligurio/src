@@ -7,6 +7,8 @@
 PATH="/bin:/usr/bin:/usr/local/bin/:."
 ED=$1
 [ ! -x $ED ] && { echo "$ED: cannot execute"; exit 1; }
+OBJ="/usr/src/regress/bin/ed/obj"
+TESTS="/usr/src/bin/ed/test"
 
 for i in *.t; do
 #	base=${i%.*}
@@ -31,13 +33,13 @@ for i in *.t; do
 		#!/bin/sh -
 		$ED - <<\EOT
 		H
-		r $base.d
-		w $base.o
+		r $TESTS/$base.d
+		w $OBJ/$base.o
 		EOT
 		.
 		-2r $i
-		w $base.ed
-		!chmod +x $base.ed
+		w $OBJ/$base.ed
+		!chmod +x $OBJ/$base.ed
 	EOF
 done
 
@@ -65,12 +67,12 @@ for i in *.err; do
 		#!/bin/sh -
 		$ED - <<\EOT
 		H
-		r $base.err
-		w $base.o
+		r $TESTS/$base.err
+		w $OBJ/$base.o
 		EOT
 		.
 		-2r $i
-		w ${base}.red
-		!chmod +x ${base}.red
+		w $OBJ/${base}.red
+		!chmod +x $OBJ/${base}.red
 	EOF
 done

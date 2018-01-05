@@ -1,13 +1,23 @@
 # $OpenBSD $
 
-EDDIR=	${.CURDIR}/../../../bin/ed/test/
-REGRESS_TARGETS= run-regress-ed
+TESTDIR= ${.CURDIR}/../../../bin/ed/test/
+OBJDIR= ${.CURDIR}/obj
+ED= /bin/ed
+SHELL= /bin/sh
+CLEANFILES += ${OBJDIR}/*.red ${OBJDIR}/*.ed ${OBJDIR}/*.o
 
-run-regress-ed:
-	make -C ${EDDIR} check
+regress: makescripts
+ARGS!= cd ${OBJDIR} && ls *.{ed,red}
+TARGETS?= ${ARGS}
+REGRESS_TARGETS= ${TARGETS:S/^/run-regress-/}
+.for a in ${ARGS}
+run-regress-$a: $a
+		@echo '\n======== $a ========'
+		@${SHELL} ${.CURDIR}/ckscripts.sh ${ED} ${OBJDIR} ${TESTDIR} $a
+.endfor
 
-clean:
-	make -C ${EDDIR} clean
+makescripts:
+		cd ${TESTDIR} && $(SHELL) mkscripts.sh $(ED) ${OBJDIR} ${TESTS}
 
 .PHONY: ${REGRESS_TARGETS}
 
