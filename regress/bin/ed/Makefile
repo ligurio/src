@@ -17,7 +17,7 @@ run-regress-$a: $a
 .endfor
 
 makescripts:
-		cd ${TESTDIR} && $(SHELL) mkscripts.sh $(ED) ${OBJDIR} ${TESTS}
+		cd ${TESTDIR} && $(SHELL) mkscripts.sh ${ED} ${OBJDIR} ${TESTS}
 
 .PHONY: ${REGRESS_TARGETS}
 
